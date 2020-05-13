@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Sample1</title>
+<script type="text/javascript">
+    function Sample1(){
+        var hoge = Sample1_form.textbox.value;  //テキストエリアの値を取得
+        var S="";
+        var tmp=0;
+        //alert(hoge.length);
+        for(var i=0;i<hoge.length-2;i+=3){
+            tmp++;
+            var codon =hoge.substr(i,3);
+            //alert(codon);
+            if(codon[0]=='G'&&codon[1]=='G'){
+                S+="Gly-";
+            }else if(codon[0]=='G'&&codon[1]=='U'){
+                S+="Val-";
+            }else if(codon[0]=='G'&&codon[1]=='C'){
+                S+="Ala-";
+            }else if(codon[0]=='G'&&codon[1]=='A'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Asp-";
+            }else if(codon[0]=='G'&&codon[1]=='A'){
+                S+="Glu-";
+            }else if(codon[0]=='A'&&codon[1]=='C'){
+                S+="Thr-";
+            }else if(codon[0]=='A'&&codon[1]=='U'&&codon[2]=='G'){
+                S+="Met-";
+            }else if(codon[0]=='A'&&codon[1]=='U'){
+                S+="Ile-";
+            }else if(codon[0]=='A'&&codon[1]=='A'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Asn-";
+            }else if(codon[0]=='A'&&codon[1]=='A'){
+                S+="Lys-";
+            }else if(codon[0]=='A'&&codon[1]=='G'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Ser-";
+            }else if(codon[0]=='A'&&codon[1]=='G'){
+                S+="Arg-";
+            }else if(codon[0]=='C'&&codon[1]=='U'){
+                S+="Leu-";
+            }else if(codon[0]=='C'&&codon[1]=='C'){
+                S+="Pro-";
+            }else if(codon[0]=='C'&&codon[1]=='A'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="His-";
+            }else if(codon[0]=='C'&&codon[1]=='A'){
+                S+="Gln-";
+            }else if(codon[0]=='C'&&codon[1]=='G'){
+                S+="Arg-";
+            }else if(codon[0]=='U'&&codon[1]=='U'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Phe-";
+            }else if(codon[0]=='U'&&codon[1]=='U'){
+                S+="Leu-";
+            }else if(codon[0]=='U'&&codon[1]=='C'){
+                S+="Ser-";
+            }else if(codon[0]=='U'&&codon[1]=='A'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Tyr-";
+            }else if(codon[0]=='U'&&codon[1]=='A'){
+                S+="終止";
+            }else if(codon[0]=='U'&&codon[1]=='G'&&(codon[2]=='U'||codon[2]=='C')){
+                S+="Cys-";
+            }else if(codon[0]=='U'&&codon[1]=='G'&&codon[2]=='A'){
+                S+="終止";
+            }else if(codon[0]=='U'&&codon[1]=='G'){
+                S+="Trp-";
+            }
+        }
+        //document.writeln("AAAAA");
+        document.getElementById("num").textContent = tmp ;
+        document.getElementById("edit_area").textContent = S ;
+    }
+</script>
+</head>
+ 
+<body>
+
+<form name="Sample1_form" action="Sample1.html">
+<input type="text" name="textbox">
+<input type="button" value="実行" onclick="Sample1()">
+
+</form>
+
+<p>コドン数：</p>
+<p id="num">0</p>
+<p>翻訳後：</p>
+<p id="edit_area">None</p>
+</body>
+</html>
